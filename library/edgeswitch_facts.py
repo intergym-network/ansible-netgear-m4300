@@ -14,7 +14,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 
 DOCUMENTATION = """
 ---
-module: edgeswitch_facts
+module: m4300_facts
 version_added: "2.8"
 author: "Frederic Bor (@f-bor)"
 short_description: Collect facts from remote devices running Edgeswitch
@@ -41,11 +41,11 @@ options:
 
 EXAMPLES = """
 # Collect all facts from the device
-- edgeswitch_facts:
+- m4300_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- edgeswitch_facts:
+- m4300_facts:
     gather_subset:
       - config
 
@@ -89,7 +89,7 @@ ansible_net_interfaces:
 """
 import re
 
-from ansible.module_utils.network.edgeswitch.edgeswitch import run_commands
+from ansible.module_utils.network.m4300.m4300 import run_commands
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
 

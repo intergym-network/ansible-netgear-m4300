@@ -15,15 +15,15 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 
 DOCUMENTATION = """
 ---
-module: edgeswitch_interface
+module: m4300_interface
 version_added: "2.8"
 author: "Frederic Bor (@f-bor)"
-short_description: Manage Interface on Ubiquiti edgeswitch
+short_description: Manage Interface on Ubiquiti m4300
 description:
   - This module provides declarative management of Interfaces
     on Ubiquiti Edgeswitch devices.
 notes:
-  - Tested against edgeswitch 1.7.4
+  - Tested against m4300 1.7.4
 options:
   name:
     description:
@@ -52,24 +52,24 @@ options:
 
 EXAMPLES = """
 - name: configure interface
-  edgeswitch_interface:
+  m4300_interface:
     name: 0/2
     description: test-interface
     speed: 100 half-duplex
     mtu: 9216
 
 - name: make interface up
-  edgeswitch_interface:
+  m4300_interface:
     name: 0/2
     enabled: True
 
 - name: make interface down
-  edgeswitch_interface:
+  m4300_interface:
     name: 0/2
     enabled: False
 
 - name: Set interfaces using aggregate
-  edgeswitch_interface:
+  m4300_interface:
     aggregate:
       - { name: 0/7, mtu: 9216, description: test-interface-1 }
       - { name: 0/8, mtu: 9216, description: test-interface-2 }
@@ -93,7 +93,7 @@ import re
 
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.network.edgeswitch.edgeswitch import get_interfaces_config, load_config, run_commands, build_aggregate_spec
+from ansible.module_utils.network.m4300.m4300 import get_interfaces_config, load_config, run_commands, build_aggregate_spec
 from ansible.module_utils.network.common.config import NetworkConfig
 
 

@@ -8,9 +8,9 @@ fi
 
 misc/local2ansible
 
-TO_CHECK='lib/ansible/modules/network/edgeswitch/
-    lib/ansible/module_utils/network/edgeswitch/
-    test/units/modules/network/edgeswitch/'
+TO_CHECK='lib/ansible/modules/network/m4300/
+    lib/ansible/module_utils/network/m4300/
+    test/units/modules/network/m4300/'
 
 ansible-test sanity --python 3.5 ${TO_CHECK}
 ansible-test sanity --python 2.7 ${TO_CHECK}

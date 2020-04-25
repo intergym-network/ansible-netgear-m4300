@@ -6,17 +6,17 @@ then
     exit 1
 fi
 
-mkdir -p ${ANSIBLE_HOME}/test/units/modules/network/edgeswitch/fixtures
-mkdir -p ${ANSIBLE_HOME}/lib/ansible/module_utils/network/edgeswitch
-mkdir -p ${ANSIBLE_HOME}/lib/ansible/modules/network/edgeswitch
+mkdir -p ${ANSIBLE_HOME}/test/units/modules/network/m4300/fixtures
+mkdir -p ${ANSIBLE_HOME}/lib/ansible/module_utils/network/m4300
+mkdir -p ${ANSIBLE_HOME}/lib/ansible/modules/network/m4300
 
 
-cp test/units/modules/network/edgeswitch/*.py ${ANSIBLE_HOME}/test/units/modules/network/edgeswitch/
-cp test/units/modules/network/edgeswitch/fixtures/* ${ANSIBLE_HOME}/test/units/modules/network/edgeswitch/fixtures/
-cp module_utils/network/edgeswitch/*.py ${ANSIBLE_HOME}/lib/ansible/module_utils/network/edgeswitch/
-cp library/*.py ${ANSIBLE_HOME}/lib/ansible/modules/network/edgeswitch/
-cp plugins/cliconf/edgeswitch.py ${ANSIBLE_HOME}/lib/ansible/plugins/cliconf/edgeswitch.py
-cp plugins/terminal/edgeswitch.py ${ANSIBLE_HOME}/lib/ansible/plugins/terminal/edgeswitch.py
+cp test/units/modules/network/m4300/*.py ${ANSIBLE_HOME}/test/units/modules/network/m4300/
+cp test/units/modules/network/m4300/fixtures/* ${ANSIBLE_HOME}/test/units/modules/network/m4300/fixtures/
+cp module_utils/network/m4300/*.py ${ANSIBLE_HOME}/lib/ansible/module_utils/network/m4300/
+cp library/*.py ${ANSIBLE_HOME}/lib/ansible/modules/network/m4300/
+cp plugins/cliconf/m4300.py ${ANSIBLE_HOME}/lib/ansible/plugins/cliconf/m4300.py
+cp plugins/terminal/m4300.py ${ANSIBLE_HOME}/lib/ansible/plugins/terminal/m4300.py
 
 #touch ${ANSIBLE_HOME}/lib/ansible/module_utils/networking/__init__.py
 #touch ${ANSIBLE_HOME}/lib/ansible/modules/networking/__init__.py

@@ -14,7 +14,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 
 DOCUMENTATION = """
 ---
-module: edgeswitch_command
+module: m4300_command
 version_added: "2.8"
 author: "Frederic Bor (@f-bor)"
 short_description: Run arbitrary commands on Ubiquidi Edgeswitch devices
@@ -65,11 +65,11 @@ options:
 """
 
 EXAMPLES = """
-- edgeswitch_command:
+- m4300_command:
     commands:
       - show version
 
-- edgeswitch_command:
+- m4300_command:
     commands:
       - show interfaces brief wide
       - show mpls vll
@@ -97,7 +97,7 @@ failed_conditions:
 import time
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.network.edgeswitch.edgeswitch import run_commands
+from ansible.module_utils.network.m4300.m4300 import run_commands
 from ansible.module_utils.network.common.parsing import Conditional
 from ansible.module_utils.six import string_types
 

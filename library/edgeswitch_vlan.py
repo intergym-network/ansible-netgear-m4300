@@ -14,7 +14,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 
 DOCUMENTATION = """
 ---
-module: edgeswitch_vlan
+module: m4300_vlan
 version_added: "2.8"
 author: "Frederic Bor (@f-bor)"
 short_description: Manage VLANs on Ubiquiti Edgeswitch network devices
@@ -22,7 +22,7 @@ description:
   - This module provides declarative management of VLANs
     on Ubiquiti Edgeswitch network devices.
 notes:
-  - Tested against edgeswitch 1.7.4
+  - Tested against m4300 1.7.4
   - This module use native Ubiquiti vlan syntax and does not support switchport compatibility syntax.
     For clarity, it is strongly advised to not use both syntaxes on the same interface.
   - Edgeswitch does not support deleting or changing name of VLAN 1
@@ -81,20 +81,20 @@ options:
 
 EXAMPLES = """
 - name: Create vlan
-  edgeswitch_vlan:
+  m4300_vlan:
     vlan_id: 100
     name: voice
     action: present
 
 - name: Add interfaces to VLAN
-  edgeswitch_vlan:
+  m4300_vlan:
     vlan_id: 100
     tagged_interfaces:
       - 0/1
       - 0/4-0/6
 
 - name: setup three vlans and delete the rest
-  edgeswitch_vlan:
+  m4300_vlan:
     purge: true
     aggregate:
       - { vlan_id: 1, name: default, auto_untag: true, excluded_interfaces: 0/45-0/48 }
@@ -102,7 +102,7 @@ EXAMPLES = """
       - { vlan_id: 200, name: video, auto_exclude: true, untagged_interfaces: 0/45-0/48, tagged_interfaces: 0/49 }
 
 - name: Delete vlan
-  edgeswitch_vlan:
+  m4300_vlan:
     vlan_id: 100
     state: absent
 """
@@ -127,9 +127,9 @@ commands:
 
 import re
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.network.edgeswitch.edgeswitch import load_config, run_commands
-from ansible.module_utils.network.edgeswitch.edgeswitch import build_aggregate_spec, map_params_to_obj
-from ansible.module_utils.network.edgeswitch.edgeswitch_interface import InterfaceConfiguration, merge_interfaces
+from ansible.module_utils.network.m4300.m4300 import load_config, run_commands
+from ansible.module_utils.network.m4300.m4300 import build_aggregate_spec, map_params_to_obj
+from ansible.module_utils.network.m4300.m4300_interface import InterfaceConfiguration, merge_interfaces
 
 
 def search_obj_in_list(vlan_id, lst):

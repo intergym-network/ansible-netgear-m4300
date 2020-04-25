@@ -14,7 +14,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 
 DOCUMENTATION = """
 ---
-module: edgeswitch_voice
+module: m4300_voice
 version_added: "2.8"
 author: "Frederic Bor (@f-bor)"
 short_description: Manage voice feature on Ubiquiti Edgeswitch network devices
@@ -50,7 +50,7 @@ options:
 
 EXAMPLES = """
 - name: Setup voice vlan
-  edgeswitch_voice:
+  m4300_voice:
     vlan_id: 100
     dscp: 46
     state: present
@@ -59,7 +59,7 @@ EXAMPLES = """
       - 0/3-0/6
 
 - name: Remove voice vlan configuration
-  edgeswitch_voice:
+  m4300_voice:
     state: absent
     interfaces:
       - all
@@ -87,8 +87,8 @@ commands:
 import re
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.network.edgeswitch.edgeswitch import get_interfaces_config, load_config, build_aggregate_spec, map_params_to_obj
-from ansible.module_utils.network.edgeswitch.edgeswitch_interface import InterfaceConfiguration, merge_interfaces
+from ansible.module_utils.network.m4300.m4300 import get_interfaces_config, load_config, build_aggregate_spec, map_params_to_obj
+from ansible.module_utils.network.m4300.m4300_interface import InterfaceConfiguration, merge_interfaces
 
 
 def map_to_commands_interface(vlan_id, dscp, lldp, state, port, interfaces):
